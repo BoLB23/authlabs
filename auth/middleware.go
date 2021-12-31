@@ -1,20 +1,19 @@
 package middleware
 
 import (
-	"jwt-app/auth"
 	"net/http"
 
-	"github.com/gin-gonic/gin"
+	"github.com/BoLB23/authlabs/auth"
+	"github.com/gorilla/mux"
 )
 
-func TokenAuthMiddleware() gin.HandlerFunc {
-	return func(c *gin.Context) {
-		err := auth.TokenValid(c.Request)
+func TokenAuthMiddleware(next http.Handler) mux.MiddlewareFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		err := auth.TokenValid(r)
 		if err != nil {
-			c.JSON(http.StatusUnauthorized, "unauthorized")
-			c.Abort()
+			http.Error(w, "MW - Unauthorized", http.StatusUnauthorized)
 			return
 		}
-		c.Next()
+		next.ServeHTTP(w, r)
 	}
 }

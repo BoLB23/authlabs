@@ -1,5 +1,7 @@
 github.com/BoLB23/authlabs v0.0.0-20211230194955-d411773e7d4a h1:YeCe8eRqhNjt4QAR7PtmKErbGtalvYF6nq//5zTQn70=
 github.com/BoLB23/authlabs v0.0.0-20211230194955-d411773e7d4a/go.mod h1:pgyD5RInBkhDSEjA/BN+GLuW+xih8/djiIbL8AOvBiQ=
+github.com/BoLB23/authlabs v0.0.0-20211231035721-572075c5b8f5 h1:ItW/ys9tWcYty6LJqt2kX3GV9GLFMv/p5oZ6YWtPRDo=
+github.com/BoLB23/authlabs v0.0.0-20211231035721-572075c5b8f5/go.mod h1:pgyD5RInBkhDSEjA/BN+GLuW+xih8/djiIbL8AOvBiQ=
 github.com/dgrijalva/jwt-go v3.2.0+incompatible h1:7qlOGliEKZXTDg6OTjfoBKDXWrumCAMpl/TFQ4/5kLM=
 github.com/dgrijalva/jwt-go v3.2.0+incompatible/go.mod h1:E3ru+11k8xSBh+hMPgOLZmtrrCbhqsmaPHjLKYnJCaQ=
 github.com/fsnotify/fsnotify v1.4.7/go.mod h1:jwhsz4b93w/PPRr/qN1Yymfu8t87LnFCMoQvtojpjFo=

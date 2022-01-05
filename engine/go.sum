@@ -2,6 +2,8 @@ github.com/BoLB23/authlabs v0.0.0-20211231035721-572075c5b8f5 h1:ItW/ys9tWcYty6L
 github.com/BoLB23/authlabs v0.0.0-20211231035721-572075c5b8f5/go.mod h1:pgyD5RInBkhDSEjA/BN+GLuW+xih8/djiIbL8AOvBiQ=
 github.com/BoLB23/authlabs v0.0.0-20211231042147-a7f8077757f2 h1:okdG+aXZzpkBZLwhVpSjdhp9c9XvZjJ0dXOfqXzG0jM=
 github.com/BoLB23/authlabs v0.0.0-20211231042147-a7f8077757f2/go.mod h1:pgyD5RInBkhDSEjA/BN+GLuW+xih8/djiIbL8AOvBiQ=
+github.com/BoLB23/authlabs v0.0.0-20211231043605-b51d7977c4e6 h1:eO21YLiIpojsSeQFy6fzslfIpBMWe3oQQT0ne9WcgQY=
+github.com/BoLB23/authlabs v0.0.0-20211231043605-b51d7977c4e6/go.mod h1:pgyD5RInBkhDSEjA/BN+GLuW+xih8/djiIbL8AOvBiQ=
 github.com/BoLB23/authlabs/auth v0.0.0-20211231042147-a7f8077757f2 h1:c2/NnSdNl2kMSgWY9ZzQxE46poKYjLF39KxflzNyYJo=
 github.com/BoLB23/authlabs/auth v0.0.0-20211231042147-a7f8077757f2/go.mod h1:7ZJ2MZkPov4TktGHBOtNaAkTStwNKcNjPCDIpxkcjKU=
 github.com/dgrijalva/jwt-go v3.2.0+incompatible h1:7qlOGliEKZXTDg6OTjfoBKDXWrumCAMpl/TFQ4/5kLM=

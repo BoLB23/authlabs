@@ -6,17 +6,18 @@ import (
 	"net/http"
 	"os"
 
+	"github.com/BoLB23/authlabs/auth"
+	"github.com/BoLB23/authlabs/token"
 	"github.com/dgrijalva/jwt-go"
-	auth "ithub.com/BoLB23/authlabs/auth"
 )
 
 // ProfileHandler struct
 type profileHandler struct {
 	rd auth.AuthInterface
-	tk auth.TokenInterface
+	tk token.TokenInterface
 }
 
-func NewProfile(rd auth.AuthInterface, tk auth.TokenInterface) *profileHandler {
+func NewProfile(rd auth.AuthInterface, tk token.TokenInterface) *profileHandler {
 	return &profileHandler{rd, tk}
 }
 

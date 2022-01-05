@@ -7,7 +7,7 @@ import (
 	"os"
 
 	"github.com/BoLB23/authlabs/auth"
-	"github.com/BoLB23/authlabs/token"
+	"github.com/BoLB23/authlabs/controllers/token"
 	"github.com/dgrijalva/jwt-go"
 )
 

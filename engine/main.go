@@ -5,11 +5,11 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/BoLB23/authlabs/auth@main"
-	ControllerEvents "github.com/BoLB23/authlabs/controllers/events@main"
-	"github.com/BoLB23/authlabs/controllers/handlers@main"
-	ControllerHome "github.com/BoLB23/authlabs/controllers/home@main"
-	Logging "github.com/BoLB23/authlabs/controllers/logging@main"
+	"github.com/BoLB23/authlabs/auth"
+	ControllerEvents "github.com/BoLB23/authlabs/controllers/events"
+	"github.com/BoLB23/authlabs/controllers/handlers"
+	ControllerHome "github.com/BoLB23/authlabs/controllers/home"
+	Logging "github.com/BoLB23/authlabs/controllers/logging"
 	"github.com/go-redis/redis/v7"
 	"github.com/gorilla/mux"
 )

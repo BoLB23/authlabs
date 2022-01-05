@@ -8,7 +8,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/BoLB23/authlabs/auth@main"
+	"github.com/BoLB23/authlabs/auth"
 	"github.com/dgrijalva/jwt-go"
 	"github.com/twinj/uuid"
 )

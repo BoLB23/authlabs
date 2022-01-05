@@ -3,7 +3,7 @@ package middleware
 import (
 	"net/http"
 
-	"github.com/BoLB23/authlabs/auth@main"
+	"github.com/BoLB23/authlabs/auth"
 	"github.com/gorilla/mux"
 )
 

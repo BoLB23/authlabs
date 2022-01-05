@@ -1,12 +1,10 @@
-github.com/BoLB23/authlabs v0.0.0-20220105215053-d9419c7f03bd h1:n8+B/2HRSjE2BYNNAmvWzDKF9DXK5tLOjXoVcnE1rTk=
-github.com/BoLB23/authlabs v0.0.0-20220105215053-d9419c7f03bd/go.mod h1:pgyD5RInBkhDSEjA/BN+GLuW+xih8/djiIbL8AOvBiQ=
 github.com/BoLB23/authlabs v0.0.0-20220105222744-16a6480bc7ca h1:ZEGtJWIBKB+Lt7Fmjzw2Y3cGMvQ0Xh5qnrAC5NmJLvM=
 github.com/BoLB23/authlabs v0.0.0-20220105222744-16a6480bc7ca/go.mod h1:pgyD5RInBkhDSEjA/BN+GLuW+xih8/djiIbL8AOvBiQ=
 github.com/BoLB23/authlabs/auth v0.0.0-20211231042147-a7f8077757f2/go.mod h1:7ZJ2MZkPov4TktGHBOtNaAkTStwNKcNjPCDIpxkcjKU=
-github.com/BoLB23/authlabs/auth v0.0.0-20220105215053-d9419c7f03bd h1:hyQ9p0AhvEnPP0Btttpf+OwhMs6H6wcryRYOnjI5ysU=
-github.com/BoLB23/authlabs/auth v0.0.0-20220105215053-d9419c7f03bd/go.mod h1:7ZJ2MZkPov4TktGHBOtNaAkTStwNKcNjPCDIpxkcjKU=
-github.com/BoLB23/authlabs/controllers/handlers v0.0.0-20220105215053-d9419c7f03bd h1:tjVwT3Tpt8mr4aibF/CCva7mVTxOZN9hbiPbK0IUfhk=
-github.com/BoLB23/authlabs/controllers/handlers v0.0.0-20220105215053-d9419c7f03bd/go.mod h1:rU4pHujk0P4w6vrkkV3GSSl/4A2rqeeWeGx2RO5OAhU=
+github.com/BoLB23/authlabs/auth v0.0.0-20220105222744-16a6480bc7ca h1:DxHh72Bljw/M0pbAvYKY35IUXL+bcdskHRiifbo7hGI=
+github.com/BoLB23/authlabs/auth v0.0.0-20220105222744-16a6480bc7ca/go.mod h1:7ZJ2MZkPov4TktGHBOtNaAkTStwNKcNjPCDIpxkcjKU=
+github.com/BoLB23/authlabs/controllers/handlers v0.0.0-20220105222744-16a6480bc7ca h1:HdOtFtewlaMaVfTf7yiRdWEW+8xp5z1Dc5qI2NPHK0A=
+github.com/BoLB23/authlabs/controllers/handlers v0.0.0-20220105222744-16a6480bc7ca/go.mod h1:rU4pHujk0P4w6vrkkV3GSSl/4A2rqeeWeGx2RO5OAhU=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/dgrijalva/jwt-go v3.2.0+incompatible h1:7qlOGliEKZXTDg6OTjfoBKDXWrumCAMpl/TFQ4/5kLM=

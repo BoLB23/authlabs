@@ -3,8 +3,18 @@ module github.com/BoLB23/authlabs/engine
 go 1.17
 
 require (
-	github.com/BoLB23/authlabs v0.0.0-20211231043605-b51d7977c4e6 // indirect
-	github.com/BoLB23/authlabs/auth v0.0.0-20211231042147-a7f8077757f2 // indirect
-	github.com/go-redis/redis/v7 v7.4.1 // indirect
-	github.com/gorilla/mux v1.8.0 // indirect
+	github.com/BoLB23/authlabs v0.0.0-20220105215053-d9419c7f03bd
+	github.com/BoLB23/authlabs/auth v0.0.0-20220105215053-d9419c7f03bd
+	github.com/BoLB23/authlabs/controllers/handlers v0.0.0-20220105215053-d9419c7f03bd
+	github.com/go-redis/redis/v7 v7.4.1
+	github.com/gorilla/mux v1.8.0
+)
+
+require (
+	github.com/davecgh/go-spew v1.1.1 // indirect
+	github.com/dgrijalva/jwt-go v3.2.0+incompatible // indirect
+	github.com/myesui/uuid v1.0.0 // indirect
+	github.com/pmezard/go-difflib v1.0.0 // indirect
+	github.com/twinj/uuid v1.0.0 // indirect
+	gopkg.in/stretchr/testify.v1 v1.2.2 // indirect
 )

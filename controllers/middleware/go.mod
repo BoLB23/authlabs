@@ -3,7 +3,6 @@ module github.com/BoLB23/authlabs/controllers/middleware
 go 1.17
 
 require (
-	github.com/BoLB23/authlabs v0.0.0-20211231035721-572075c5b8f5
 	github.com/gorilla/mux v1.8.0
 )
 

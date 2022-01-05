@@ -6,8 +6,8 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/BoLB23/authlabs/auth"
-	"github.com/BoLB23/authlabs/controllers/token"
+	"github.com/BoLB23/authlabs/auth@main"
+	"github.com/BoLB23/authlabs/controllers/token@main"
 	"github.com/dgrijalva/jwt-go"
 )
 
@@ -61,7 +61,12 @@ func (h *profileHandler) Login(w http.ResponseWriter, r *http.Request) {
 		"access_token":  ts.AccessToken,
 		"refresh_token": ts.RefreshToken,
 	}
-	fmt.Fprintf(w, json.Marshal(tokens))
+	tkns, err := json.Marshal(tokens)
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(string(tkns))
+	fmt.Fprintf(w, string(tkns))
 }
 
 func (h *profileHandler) Logout(w http.ResponseWriter, r *http.Request) {
@@ -137,7 +142,12 @@ func (h *profileHandler) Refresh(w http.ResponseWriter, r *http.Request) {
 			"access_token":  ts.AccessToken,
 			"refresh_token": ts.RefreshToken,
 		}
-		fmt.Fprintf(w, json.Marshal(tokens))
+		tkns, err := json.Marshal(tokens)
+		if err != nil {
+			panic(err)
+		}
+		fmt.Println(string(tkns))
+		fmt.Fprintf(w, string(tkns))
 	} else {
 		http.Error(w, "Token Expired", http.StatusUnauthorized)
 	}

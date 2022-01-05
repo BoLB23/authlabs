@@ -6,8 +6,8 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/BoLB23/authlabs/auth"
 	"github.com/dgrijalva/jwt-go"
+	auth "ithub.com/BoLB23/authlabs/auth"
 )
 
 // ProfileHandler struct

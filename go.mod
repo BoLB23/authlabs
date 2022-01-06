@@ -2,7 +2,7 @@ module testapp
 
 go 1.17
 
-replace github.com/BoLB23/authlabs/auth => ./auth
+//replace github.com/BoLB23/authlabs/auth => ./auth
 
 require (
 	github.com/BoLB23/authlabs v0.0.0-20220106032225-93ad8ccf0bd4

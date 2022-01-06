@@ -34,6 +34,10 @@ var user = User{
 	Password: "password",
 }
 
+func Home(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "home!")
+}
+
 func Login(w http.ResponseWriter, r *http.Request) {
 	var h *profileHandler
 	var u User

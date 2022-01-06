@@ -37,7 +37,7 @@ func main() {
 
 	router := mux.NewRouter().StrictSlash(true)
 	router.HandleFunc("/", home.HomeLink)
-	router.HandleFunc("/login", h.Login).Methods("POST")
+	router.HandleFunc("/login", h.Home).Methods("POST")
 	router.HandleFunc("/event", events.CreateEvent).Methods("POST")
 	router.HandleFunc("/events", events.GetAllEvents).Methods("GET")
 	router.HandleFunc("/events/{id}", events.GetOneEvent).Methods("GET")

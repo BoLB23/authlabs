@@ -1,12 +1,5 @@
-github.com/BoLB23/authlabs v0.0.0-20220105215053-d9419c7f03bd h1:n8+B/2HRSjE2BYNNAmvWzDKF9DXK5tLOjXoVcnE1rTk=
-github.com/BoLB23/authlabs v0.0.0-20220105215053-d9419c7f03bd/go.mod h1:pgyD5RInBkhDSEjA/BN+GLuW+xih8/djiIbL8AOvBiQ=
-github.com/BoLB23/authlabs v0.0.0-20220105222744-16a6480bc7ca h1:ZEGtJWIBKB+Lt7Fmjzw2Y3cGMvQ0Xh5qnrAC5NmJLvM=
-github.com/BoLB23/authlabs v0.0.0-20220105222744-16a6480bc7ca/go.mod h1:pgyD5RInBkhDSEjA/BN+GLuW+xih8/djiIbL8AOvBiQ=
-github.com/BoLB23/authlabs/auth v0.0.0-20211231042147-a7f8077757f2/go.mod h1:7ZJ2MZkPov4TktGHBOtNaAkTStwNKcNjPCDIpxkcjKU=
-github.com/BoLB23/authlabs/auth v0.0.0-20220105222744-16a6480bc7ca h1:DxHh72Bljw/M0pbAvYKY35IUXL+bcdskHRiifbo7hGI=
-github.com/BoLB23/authlabs/auth v0.0.0-20220105222744-16a6480bc7ca/go.mod h1:7ZJ2MZkPov4TktGHBOtNaAkTStwNKcNjPCDIpxkcjKU=
-github.com/BoLB23/authlabs/controllers/handlers v0.0.0-20220105222744-16a6480bc7ca h1:HdOtFtewlaMaVfTf7yiRdWEW+8xp5z1Dc5qI2NPHK0A=
-github.com/BoLB23/authlabs/controllers/handlers v0.0.0-20220105222744-16a6480bc7ca/go.mod h1:rU4pHujk0P4w6vrkkV3GSSl/4A2rqeeWeGx2RO5OAhU=
+github.com/BoLB23/authlabs/auth v0.0.0-20220105225717-af5930d6b7da h1:s1cf2d+yei/wp6xj7Ws0x4bea8Qg/1SCNdIxh8W2nVs=
+github.com/BoLB23/authlabs/auth v0.0.0-20220105225717-af5930d6b7da/go.mod h1:7ZJ2MZkPov4TktGHBOtNaAkTStwNKcNjPCDIpxkcjKU=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/dgrijalva/jwt-go v3.2.0+incompatible h1:7qlOGliEKZXTDg6OTjfoBKDXWrumCAMpl/TFQ4/5kLM=
@@ -16,8 +9,6 @@ github.com/go-redis/redis/v7 v7.4.1 h1:PASvf36gyUpr2zdOUS/9Zqc80GbM+9BDyiJSJDDOr
 github.com/go-redis/redis/v7 v7.4.1/go.mod h1:JDNMw23GTyLNC4GZu9njt15ctBQVn7xjRfnwdHj/Dcg=
 github.com/golang/protobuf v1.2.0/go.mod h1:6lQm79b+lXiMfvg/cZm0SGofjICqVBUtrP5yJMmIC1U=
 github.com/golang/protobuf v1.3.2/go.mod h1:6lQm79b+lXiMfvg/cZm0SGofjICqVBUtrP5yJMmIC1U=
-github.com/gorilla/mux v1.8.0 h1:i40aqfkR1h2SlN9hojwV5ZA91wcXFOvkdNIeFDP5koI=
-github.com/gorilla/mux v1.8.0/go.mod h1:DVbg23sWSpFRCP0SfiEN6jmj59UnW/n46BH5rLB71So=
 github.com/hpcloud/tail v1.0.0 h1:nfCOvKYfkgYP8hkirhJocXT2+zOD8yUNjXaWfTlyFKI=
 github.com/hpcloud/tail v1.0.0/go.mod h1:ab1qPbhIpdTxEkNHXyeSf5vhxWSCs/tWer42PpOxQnU=
 github.com/kr/pretty v0.1.0/go.mod h1:dAy3ld7l9f0ibDNOQOHHMYYIIbhfbHSm3C4ZsoJORNo=

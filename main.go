@@ -7,10 +7,9 @@ import (
 
 	"github.com/BoLB23/authlabs/auth"
 	"github.com/BoLB23/authlabs/controllers/events"
-	//"github.com/BoLB23/authlabs/controllers/handlers"
-	"controllers/handlers"
-	ControllerHome "github.com/BoLB23/authlabs/controllers/home"
-	Logging "github.com/BoLB23/authlabs/controllers/logging"
+	"github.com/BoLB23/authlabs/controllers/home"
+	"github.com/BoLB23/authlabs/controllers/logging"
+	"github.com/BoLB23/authlabs/handlers"
 	"github.com/go-redis/redis/v7"
 	"github.com/gorilla/mux"
 )
@@ -38,13 +37,13 @@ func main() {
 	var service = handlers.NewProfile(rd, tk)
 
 	router := mux.NewRouter().StrictSlash(true)
-	router.HandleFunc("/", ControllerHome.HomeLink)
+	router.HandleFunc("/", home.HomeLink)
 	router.HandleFunc("/login", auth.Login).Methods("POST")
 	router.HandleFunc("/event", events.CreateEvent).Methods("POST")
 	router.HandleFunc("/events", events.GetAllEvents).Methods("GET")
 	router.HandleFunc("/events/{id}", events.GetOneEvent).Methods("GET")
 	router.HandleFunc("/events/{id}", events.UpdateEvent).Methods("PATCH")
 	router.HandleFunc("/events/{id}", events.DeleteEvent).Methods("DELETE")
-	router.Use(Logging.RequestLoggerMiddleware(router))
+	router.Use(logging.RequestLoggerMiddleware(router))
 	log.Fatal(http.ListenAndServe(":8080", router))
 }

@@ -1,9 +1,9 @@
 package main
 
 import (
-	"github.com/BoLB23/authlabs/auth"
+	auth "github.com/BoLB23/authlabs/auth"
 	"github.com/BoLB23/authlabs/events"
-	//"github.com/BoLB23/authlabs/handlers"
+	handlers "github.com/BoLB23/authlabs/handlers"
 	"github.com/BoLB23/authlabs/home"
 	"github.com/BoLB23/authlabs/logging"
 	"github.com/go-redis/redis/v7"
@@ -37,7 +37,7 @@ func main() {
 
 	router := mux.NewRouter().StrictSlash(true)
 	router.HandleFunc("/", home.HomeLink)
-	router.HandleFunc("/login", auth.Login).Methods("POST")
+	router.HandleFunc("/login", handlers.Login).Methods("POST")
 	router.HandleFunc("/event", events.CreateEvent).Methods("POST")
 	router.HandleFunc("/events", events.GetAllEvents).Methods("GET")
 	router.HandleFunc("/events/{id}", events.GetOneEvent).Methods("GET")

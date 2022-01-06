@@ -104,7 +104,7 @@ func (h *profileHandler) Refresh(w http.ResponseWriter, r *http.Request) {
 	}
 	//is token valid?
 	if _, ok := token.Claims.(jwt.Claims); !ok && !token.Valid {
-		http.Error(w, err, http.StatusUnauthorized)
+		http.Error(w, "Error with token", http.StatusUnauthorized)
 		return
 	}
 	//Since token is valid, get the uuid:
@@ -112,18 +112,18 @@ func (h *profileHandler) Refresh(w http.ResponseWriter, r *http.Request) {
 	if ok && token.Valid {
 		refreshUuid, ok := claims["refresh_uuid"].(string) //convert the interface to string
 		if !ok {
-			http.Error(w, err, http.StatusUnprocessableEntity)
+			http.Error(w, "Error with refresh_uuid claim", http.StatusUnprocessableEntity)
 			return
 		}
 		userId, roleOk := claims["user_id"].(string)
 		if roleOk == false {
-			http.Error(w, err, http.StatusUnauthorized)
+			http.Error(w, "Error with user_id claim", http.StatusUnauthorized)
 			return
 		}
 		//Delete the previous Refresh Token
 		delErr := h.rd.DeleteRefresh(refreshUuid)
 		if delErr != nil { //if any goes wrong
-			http.Error(w, err, http.StatusUnauthorized)
+			http.Error(w, "Error Deleting Refresh Token", http.StatusUnauthorized)
 			return
 		}
 		//Create new pairs of refresh and access tokens

@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/BoLB23/authlabs/auth"
+	auth "github.com/BoLB23/authlabs/auth"
 	ControllerEvents "github.com/BoLB23/authlabs/controllers/events"
 	"github.com/BoLB23/authlabs/controllers/handlers"
 	ControllerHome "github.com/BoLB23/authlabs/controllers/home"

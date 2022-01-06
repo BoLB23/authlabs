@@ -1,17 +1,16 @@
 package main
 
 import (
+	"github.com/BoLB23/authlabs/auth"
+	"github.com/BoLB23/authlabs/events"
+	"github.com/BoLB23/authlabs/handlers"
+	"github.com/BoLB23/authlabs/home"
+	"github.com/BoLB23/authlabs/logging"
+	"github.com/go-redis/redis/v7"
+	"github.com/gorilla/mux"
 	"log"
 	"net/http"
 	"os"
-
-	"github.com/BoLB23/authlabs/auth"
-	"github.com/BoLB23/authlabs/controllers/events"
-	"github.com/BoLB23/authlabs/controllers/home"
-	"github.com/BoLB23/authlabs/controllers/logging"
-	"github.com/BoLB23/authlabs/handlers"
-	"github.com/go-redis/redis/v7"
-	"github.com/gorilla/mux"
 )
 
 func NewRedisDB(host, port, password string) *redis.Client {

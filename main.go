@@ -1,16 +1,16 @@
 package main
 
 import (
-	auth "github.com/BoLB23/authlabs/auth"
+	//auth "github.com/BoLB23/authlabs/auth"
 	"github.com/BoLB23/authlabs/events"
-	handlers "github.com/BoLB23/authlabs/handlers"
+	h "github.com/BoLB23/authlabs/handlers"
 	"github.com/BoLB23/authlabs/home"
 	"github.com/BoLB23/authlabs/logging"
 	"github.com/go-redis/redis/v7"
 	"github.com/gorilla/mux"
 	"log"
 	"net/http"
-	"os"
+	//"os"
 )
 
 func NewRedisDB(host, port, password string) *redis.Client {
@@ -25,11 +25,11 @@ func NewRedisDB(host, port, password string) *redis.Client {
 func main() {
 
 	//redis details
-	redis_host := os.Getenv("REDIS_HOST")
-	redis_port := os.Getenv("REDIS_PORT")
-	redis_password := os.Getenv("REDIS_PASSWORD")
+	/* 	redis_host := os.Getenv("REDIS_HOST")
+	   	redis_port := os.Getenv("REDIS_PORT")
+	   	redis_password := os.Getenv("REDIS_PASSWORD")
 
-	redisClient := NewRedisDB(redis_host, redis_port, redis_password)
+	   	redisClient := NewRedisDB(redis_host, redis_port, redis_password) */
 
 	/* 	var rd = auth.NewAuth(redisClient)
 	   	var tk = auth.NewToken()
@@ -37,7 +37,7 @@ func main() {
 
 	router := mux.NewRouter().StrictSlash(true)
 	router.HandleFunc("/", home.HomeLink)
-	router.HandleFunc("/login", handlers.Login).Methods("POST")
+	router.HandleFunc("/login", h.Login).Methods("POST")
 	router.HandleFunc("/event", events.CreateEvent).Methods("POST")
 	router.HandleFunc("/events", events.GetAllEvents).Methods("GET")
 	router.HandleFunc("/events/{id}", events.GetOneEvent).Methods("GET")

@@ -34,7 +34,8 @@ var user = User{
 	Password: "password",
 }
 
-func (h *profileHandler) Login(w http.ResponseWriter, r *http.Request) {
+func Login(w http.ResponseWriter, r *http.Request) {
+	var h *profileHandler
 	var u User
 	if err := json.NewDecoder(r.Body).Decode(&u); err != nil {
 		msg := fmt.Sprintf("Request body contains badly-formed JSON (at position %d)")

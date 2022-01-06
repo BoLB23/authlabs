@@ -1,16 +1,14 @@
-package token
+package auth
 
 import (
 	"errors"
 	"fmt"
+	"github.com/dgrijalva/jwt-go"
+	"github.com/twinj/uuid"
 	"net/http"
 	"os"
 	"strings"
 	"time"
-
-	"github.com/BoLB23/authlabs/auth"
-	"github.com/dgrijalva/jwt-go"
-	"github.com/twinj/uuid"
 )
 
 type tokenservice struct{}
@@ -20,15 +18,15 @@ func NewToken() *tokenservice {
 }
 
 type TokenInterface interface {
-	CreateToken(userId string) (*auth.TokenDetails, error)
-	ExtractTokenMetadata(*http.Request) (*auth.AccessDetails, error)
+	CreateToken(userId string) (*TokenDetails, error)
+	ExtractTokenMetadata(*http.Request) (*AccessDetails, error)
 }
 
 //Token implements the TokenInterface
 var _ TokenInterface = &tokenservice{}
 
-func (t *tokenservice) CreateToken(userId string) (*auth.TokenDetails, error) {
-	td := &auth.TokenDetails{}
+func (t *tokenservice) CreateToken(userId string) (*TokenDetails, error) {
+	td := &TokenDetails{}
 	td.AtExpires = time.Now().Add(time.Minute * 30).Unix() //expires after 30 min
 	td.TokenUuid = uuid.NewV4().String()
 
@@ -99,7 +97,7 @@ func extractToken(r *http.Request) string {
 	return ""
 }
 
-func extract(token *jwt.Token) (*auth.AccessDetails, error) {
+func extract(token *jwt.Token) (*AccessDetails, error) {
 
 	claims, ok := token.Claims.(jwt.MapClaims)
 	if ok && token.Valid {
@@ -108,7 +106,7 @@ func extract(token *jwt.Token) (*auth.AccessDetails, error) {
 		if ok == false || userOk == false {
 			return nil, errors.New("unauthorized")
 		} else {
-			return &auth.AccessDetails{
+			return &AccessDetails{
 				TokenUuid: accessUuid,
 				UserId:    userId,
 			}, nil
@@ -117,7 +115,7 @@ func extract(token *jwt.Token) (*auth.AccessDetails, error) {
 	return nil, errors.New("something went wrong")
 }
 
-func (t *tokenservice) ExtractTokenMetadata(r *http.Request) (*auth.AccessDetails, error) {
+func (t *tokenservice) ExtractTokenMetadata(r *http.Request) (*AccessDetails, error) {
 	token, err := verifyToken(r)
 	if err != nil {
 		return nil, err

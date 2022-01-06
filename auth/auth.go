@@ -3,9 +3,9 @@ package auth
 import (
 	"errors"
 	"fmt"
-	"time"
 
 	"github.com/go-redis/redis/v7"
+	"time"
 )
 
 type AuthInterface interface {

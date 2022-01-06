@@ -3,21 +3,19 @@ package handlers
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/BoLB23/authlabs/auth"
+	"github.com/dgrijalva/jwt-go"
 	"net/http"
 	"os"
-
-	"github.com/BoLB23/authlabs/auth"
-	"github.com/BoLB23/authlabs/token"
-	"github.com/dgrijalva/jwt-go"
 )
 
 // ProfileHandler struct
 type profileHandler struct {
 	rd auth.AuthInterface
-	tk token.TokenInterface
+	tk auth.TokenInterface
 }
 
-func NewProfile(rd auth.AuthInterface, tk token.TokenInterface) *profileHandler {
+func NewProfile(rd auth.AuthInterface, tk auth.TokenInterface) *profileHandler {
 	return &profileHandler{rd, tk}
 }
 
@@ -34,15 +32,10 @@ var user = User{
 	Password: "password",
 }
 
-func Home(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "home!")
-}
-
-func Login(w http.ResponseWriter, r *http.Request) {
-	var h *profileHandler
+func (H *profileHandler) Login(w http.ResponseWriter, r *http.Request) {
 	var u User
 	if err := json.NewDecoder(r.Body).Decode(&u); err != nil {
-		msg := fmt.Sprintf("Request body contains badly-formed JSON (at position %d)")
+		msg := fmt.Sprintf("Request body contains badly-formed JSON ")
 		http.Error(w, msg, http.StatusUnprocessableEntity)
 		return
 	}
@@ -52,12 +45,12 @@ func Login(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, msg, http.StatusUnauthorized)
 		return
 	}
-	ts, err := h.tk.CreateToken(user.ID)
+	ts, err := H.tk.CreateToken(user.ID)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusUnprocessableEntity)
 		return
 	}
-	saveErr := h.rd.CreateAuth(user.ID, ts)
+	saveErr := H.rd.CreateAuth(user.ID, ts)
 	if saveErr != nil {
 		http.Error(w, saveErr.Error(), http.StatusUnprocessableEntity)
 		return
@@ -68,17 +61,18 @@ func Login(w http.ResponseWriter, r *http.Request) {
 	}
 	tkns, err := json.Marshal(tokens)
 	if err != nil {
-		panic(err)
+		//panic(err)
+		fmt.Println("JSON MARSHAL TOKEN ERROR!!!!")
 	}
 	fmt.Println(string(tkns))
 	fmt.Fprintf(w, string(tkns))
 }
 
-func (h *profileHandler) Logout(w http.ResponseWriter, r *http.Request) {
+func (H *profileHandler) Logout(w http.ResponseWriter, r *http.Request) {
 	//If metadata is passed and the tokens valid, delete them from the redis store
-	metadata, _ := h.tk.ExtractTokenMetadata(r)
+	metadata, _ := H.tk.ExtractTokenMetadata(r)
 	if metadata != nil {
-		deleteErr := h.rd.DeleteTokens(metadata)
+		deleteErr := H.rd.DeleteTokens(metadata)
 		if deleteErr != nil {
 			http.Error(w, deleteErr.Error(), http.StatusBadRequest)
 			return

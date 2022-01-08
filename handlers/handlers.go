@@ -23,13 +23,17 @@ type User struct {
 	ID       string `json:"id"`
 	Username string `json:"username"`
 	Password string `json:"password"`
+	ClientID string `json:"clientid"`
+	Scope    string `json:"scope"`
 }
 
 //In memory user
 var user = User{
 	ID:       "1",
-	Username: "username",
+	Username: "username1",
 	Password: "password",
+	ClientID: "0001",
+	Scope:    "read-only",
 }
 
 func (H *profileHandler) Login(w http.ResponseWriter, r *http.Request) {
@@ -45,7 +49,7 @@ func (H *profileHandler) Login(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, msg, http.StatusUnauthorized)
 		return
 	}
-	ts, err := H.tk.CreateToken(user.ID)
+	ts, err := H.tk.CreateToken(user.ID, user.ClientID, user.Scope)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusUnprocessableEntity)
 		return
@@ -119,6 +123,16 @@ func (h *profileHandler) Refresh(w http.ResponseWriter, r *http.Request) {
 			http.Error(w, "Error with user_id claim", http.StatusUnauthorized)
 			return
 		}
+		clientId, roleOk := claims["client_id"].(string)
+		if roleOk == false {
+			http.Error(w, "Error with client_id claim", http.StatusUnauthorized)
+			return
+		}
+		scope, roleOk := claims["scope"].(string)
+		if roleOk == false {
+			http.Error(w, "Error with scope claim", http.StatusUnauthorized)
+			return
+		}
 		//Delete the previous Refresh Token
 		delErr := h.rd.DeleteRefresh(refreshUuid)
 		if delErr != nil { //if any goes wrong
@@ -126,7 +140,7 @@ func (h *profileHandler) Refresh(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 		//Create new pairs of refresh and access tokens
-		ts, createErr := h.tk.CreateToken(userId)
+		ts, createErr := h.tk.CreateToken(userId, clientId, scope)
 		if createErr != nil {
 			http.Error(w, createErr.Error(), http.StatusForbidden)
 			return

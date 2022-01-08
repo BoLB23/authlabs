@@ -1,11 +1,13 @@
 package middleware
 
+/*
 import (
 	"net/http"
 
 	"github.com/BoLB23/authlabs/auth"
 	"github.com/gorilla/mux"
 )
+
 
 func TokenAuthMiddleware(next http.Handler) mux.MiddlewareFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
@@ -16,4 +18,4 @@ func TokenAuthMiddleware(next http.Handler) mux.MiddlewareFunc {
 		}
 		next.ServeHTTP(w, r)
 	}
-}
+} */

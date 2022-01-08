@@ -18,14 +18,14 @@ func NewToken() *tokenservice {
 }
 
 type TokenInterface interface {
-	CreateToken(userId string) (*TokenDetails, error)
+	CreateToken(userId string, clientID string, scope string) (*TokenDetails, error)
 	ExtractTokenMetadata(*http.Request) (*AccessDetails, error)
 }
 
 //Token implements the TokenInterface
 var _ TokenInterface = &tokenservice{}
 
-func (t *tokenservice) CreateToken(userId string) (*TokenDetails, error) {
+func (t *tokenservice) CreateToken(userId string, clientID string, scope string) (*TokenDetails, error) {
 	td := &TokenDetails{}
 	td.AtExpires = time.Now().Add(time.Minute * 30).Unix() //expires after 30 min
 	td.TokenUuid = uuid.NewV4().String()
@@ -39,6 +39,9 @@ func (t *tokenservice) CreateToken(userId string) (*TokenDetails, error) {
 	atClaims["access_uuid"] = td.TokenUuid
 	atClaims["user_id"] = userId
 	atClaims["exp"] = td.AtExpires
+	atClaims["client_id"] = clientID
+	atClaims["scope"] = scope
+
 	at := jwt.NewWithClaims(jwt.SigningMethodHS256, atClaims)
 	td.AccessToken, err = at.SignedString([]byte(os.Getenv("ACCESS_SECRET")))
 	if err != nil {

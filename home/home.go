@@ -6,5 +6,5 @@ import (
 )
 
 func HomeLink(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Welcome 2 home!")
+	fmt.Fprintf(w, "AuthLabs App is Running use paths: \n \t/login\n \t/logout\n \t/auth")
 }

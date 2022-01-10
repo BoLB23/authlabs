@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"github.com/BoLB23/authlabs/auth"
+	"github.com/BoLB23/authlabs/events"
 	"github.com/BoLB23/authlabs/handlers"
 	"github.com/BoLB23/authlabs/home"
 	"github.com/BoLB23/authlabs/middleware"
@@ -46,6 +47,7 @@ func main() {
 	router.HandleFunc("/login", service.Login).Methods("POST")
 	router.HandleFunc("/logout", service.Logout).Methods("POST")
 	router.HandleFunc("/auth", auth.Engine).Methods("GET")
+	router.HandleFunc("/events", events.GetAllEvents).Methods("GET")
 	router.HandleFunc("/echo", auth.Echo).Methods("GET", "POST", "PATCH", "PUT")
 	router.Use(middleware.RequestLoggerMiddleware(router))
 	log.Fatal(http.ListenAndServe(":8080", router))

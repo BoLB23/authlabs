@@ -3,10 +3,10 @@ package events
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/BoLB23/authlabs/auth"
+	"github.com/gorilla/mux"
 	"io/ioutil"
 	"net/http"
-
-	"github.com/gorilla/mux"
 )
 
 type Event struct {
@@ -50,6 +50,11 @@ func GetOneEvent(w http.ResponseWriter, r *http.Request) {
 }
 
 func GetAllEvents(w http.ResponseWriter, r *http.Request) {
+	err := auth.TokenValid(r)
+	if err != nil {
+		http.Error(w, "MW - Unauthorized ", http.StatusUnauthorized)
+		return
+	}
 	json.NewEncoder(w).Encode(Events)
 }
 

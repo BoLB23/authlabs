@@ -17,12 +17,24 @@ func Echo(w http.ResponseWriter, r *http.Request) {
 }
 
 func Engine(w http.ResponseWriter, r *http.Request) {
-	h := r.Header.Get("Custom-Header")
-	if h == "" {
-		http.Error(w, "Error reading header", http.StatusUnprocessableEntity)
-	} else {
-		fmt.Fprintf(w, "Permitted")
-		fmt.Fprintf(w, h)
+	// Parse Request
+	// Choose Registered App and set vars
+	// If auth req check auth
+	// if Host rules, check host
+	// if path rules, check path
+	// if header rules, check header
+	Rules(w, r)
+}
+
+func Rules(w http.ResponseWriter, r *http.Request) {
+	AuthReq := true
+	if AuthReq == true {
+		err := TokenValid(r)
+		if err == nil {
+			fmt.Fprintf(w, "TOKEN OK")
+		} else {
+			http.Error(w, "Unauthorized ", http.StatusUnauthorized)
+		}
+		return
 	}
-	return
 }

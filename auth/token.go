@@ -22,6 +22,14 @@ type TokenInterface interface {
 	ExtractTokenMetadata(*http.Request) (*AccessDetails, error)
 }
 
+type VerifiedTokenClaims struct {
+	userid   int
+	clientid int
+	scope    string
+}
+
+var VCT = VerifiedTokenClaims{}
+
 //Token implements the TokenInterface
 var _ TokenInterface = &tokenservice{}
 
@@ -70,10 +78,22 @@ func TokenValid(r *http.Request) error {
 	if err != nil {
 		return err
 	}
-	if _, ok := token.Claims.(jwt.Claims); !ok && !token.Valid {
+	if _, ok := token.Claims.(jwt.Claims); ok && token.Valid {
+
+		return nil
+	}
+	return err
+}
+
+func TokenClaims(r *http.Request) error {
+	token, err := verifyToken(r)
+	if err != nil {
 		return err
 	}
-	return nil
+	if _, ok := token.Claims.(jwt.Claims); ok && token.Valid {
+		return nil
+	}
+	return err
 }
 
 func verifyToken(r *http.Request) (*jwt.Token, error) {
@@ -107,7 +127,7 @@ func extract(token *jwt.Token) (*AccessDetails, error) {
 		accessUuid, ok := claims["access_uuid"].(string)
 		userId, userOk := claims["user_id"].(string)
 		if ok == false || userOk == false {
-			return nil, errors.New("unauthorized")
+			return nil, errors.New("unauthorized -")
 		} else {
 			return &AccessDetails{
 				TokenUuid: accessUuid,
